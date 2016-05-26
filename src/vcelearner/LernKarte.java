@@ -86,7 +86,7 @@ public class LernKarte {
 
         try {
             // VERBINDUNG AUFBBAUEN:
-            con = DriverManager.getConnection("jdbc:mysql://192.168.2.3:3306/vcetrainer","Petra","Panke");
+            con = DriverManager.getConnection("jdbc:mysql://127.0.0.1:3306/vcetrainer","root","ncc1701d");
             // STATEMENT
             String Sql = "INSERT INTO lernkarte VALUES (null, ?, ?)";
             pst = con.prepareStatement(Sql, PreparedStatement.RETURN_GENERATED_KEYS);
@@ -138,7 +138,7 @@ public class LernKarte {
             Lernkarte2Themenbereich.delete(lK.getId());
             PotentielleAntwort.delete(lK.getId());
 
-            con = DriverManager.getConnection("jdbc:mysql://192.168.2.3:3306/vcetrainer","Petra","Panke");
+            con = DriverManager.getConnection("jdbc:mysql://127.0.0.1:3306/vcetrainer","root","ncc1701d");
             String Sql = "DELETE FROM lernkarte WHERE id=?";
             pst = con.prepareStatement(Sql);
             pst.setInt(1, lK.getId());
@@ -166,7 +166,7 @@ public class LernKarte {
     public static ArrayList<LernKarte> getAll() {
         ArrayList<LernKarte> lKs = new ArrayList<>();
         try {
-            con = DriverManager.getConnection("jdbc:mysql://192.168.2.3:3306/vcetrainer","Petra","Panke");
+            con = DriverManager.getConnection("jdbc:mysql://127.0.0.1:3306/vcetrainer","root","ncc1701d");
             String sql = "SELECT * FROM lernkarte";
             st = con.createStatement();
             rst = st.executeQuery(sql);
@@ -214,7 +214,7 @@ public class LernKarte {
      public static LernKarte getById(int lkid) {
        LernKarte lK = null;
         try {
-            con = DriverManager.getConnection("jdbc:mysql://192.168.2.3:3306/vcetrainer","Petra","Panke");
+            con = DriverManager.getConnection("jdbc:mysql://127.0.0.1:3306/vcetrainer","root","ncc1701d");
             String sql = "SELECT * FROM lernkarte WHERE id=?";
             pst = con.prepareStatement(sql);
             pst.setInt(1, lkid);
@@ -262,7 +262,7 @@ public class LernKarte {
     public static void update(LernKarte lK) {
 
         try {
-            con = DriverManager.getConnection("jdbc:mysql://192.168.2.3:3306/vcetrainer","Petra","Panke");
+            con = DriverManager.getConnection("jdbc:mysql://127.0.0.1:3306/vcetrainer","root","ncc1701d");
             String sql = "UPDATE lernkarte SET frage=?, schwierigkeitsgrad=? WHERE id=?";
             pst = con.prepareStatement(sql);
             pst.setString(1, lK.getFrage());

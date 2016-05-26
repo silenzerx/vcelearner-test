@@ -69,7 +69,7 @@ public class PotentielleAntwort {
     public static void insert(PotentielleAntwort pA) {
         try {
             // VERBINDUNG AUFBBAUEN:
-            con = DriverManager.getConnection("jdbc:mysql://192.168.2.3:3306/vcetrainer","Petra","Panke");
+            con = DriverManager.getConnection("jdbc:mysql://127.0.0.1:3306/vcetrainer","root","ncc1701d");
             // STATEMENT
             String Sql = "INSERT INTO potentielleantwort VALUES (null, ?, ?, ?)";
             pst = con.prepareStatement(Sql, PreparedStatement.RETURN_GENERATED_KEYS);
@@ -108,7 +108,7 @@ public class PotentielleAntwort {
     public static void delete(int lKid) {
 
         try {
-            con = DriverManager.getConnection("jdbc:mysql://192.168.2.3:3306/vcetrainer","Petra","Panke");
+            con = DriverManager.getConnection("jdbc:mysql://127.0.0.1:3306/vcetrainer","root","ncc1701d");
             String Sql = "DELETE FROM potentielleantwort WHERE lernkarte_id=?";
             pst = con.prepareStatement(Sql);
             pst.setInt(1, lKid);
@@ -136,7 +136,7 @@ public class PotentielleAntwort {
 //        ArrayList<PotentielleAntwort> pAs = new ArrayList<>();
 //        try {
 //            // VERBINDUNG AUFBBAUEN:
-//            con = DriverManager.getConnection("jdbc:mysql://192.168.2.3:3306/vcetrainer","Petra","Panke");
+//            con = DriverManager.getConnection("jdbc:mysql://127.0.0.1:3306/vcetrainer","root","ncc1701d");
 //            // STATEMENT
 //            String Sql = "SELECT * FROM potentielleantwort";
 //            pst = con.prepareStatement(Sql);
@@ -175,7 +175,7 @@ public class PotentielleAntwort {
     public static ArrayList<PotentielleAntwort> getAllByLernKarte_id(int lKid) {
         ArrayList<PotentielleAntwort> pAs = new ArrayList<>();
         try {
-            con = DriverManager.getConnection("jdbc:mysql://192.168.2.3:3306/vcetrainer","Petra","Panke");
+            con = DriverManager.getConnection("jdbc:mysql://127.0.0.1:3306/vcetrainer","root","ncc1701d");
             String sql = "SELECT * FROM potentielleantwort WHERE lernkarte_id=?";
             pst = con.prepareStatement(sql);
             pst.setInt(1, lKid);

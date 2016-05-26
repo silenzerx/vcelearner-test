@@ -60,7 +60,7 @@ public class Lernkarte2Themenbereich {
 
         try {
             // VERBINDUNG AUFBBAUEN:
-            con = DriverManager.getConnection("jdbc:mysql://192.168.2.3:3306/vcetrainer","Petra","Panke");
+            con = DriverManager.getConnection("jdbc:mysql://127.0.0.1:3306/vcetrainer","root","ncc1701d");
             // STATEMENT
             String Sql = "INSERT INTO lernkarte2themenbereich VALUES (null, ?, ?)";
             pst = con.prepareStatement(Sql, PreparedStatement.RETURN_GENERATED_KEYS);
@@ -100,7 +100,7 @@ public class Lernkarte2Themenbereich {
 
         try {
             // VERBINDUNG AUFBBAUEN:
-            con = DriverManager.getConnection("jdbc:mysql://192.168.2.3:3306/vcetrainer","Petra","Panke");
+            con = DriverManager.getConnection("jdbc:mysql://127.0.0.1:3306/vcetrainer","root","ncc1701d");
             // PREPARED STATEMENT:
             String Sql = "UPDATE lernkarte2themenbereich SET lernkarte_id=?, themenbereich_id=? WHERE id=?";
             pst = con.prepareStatement(Sql);
@@ -133,7 +133,7 @@ public class Lernkarte2Themenbereich {
 
         try {
             // VERBINDUNG AUFBAUEN:
-            con = DriverManager.getConnection("jdbc:mysql://192.168.2.3:3306/vcetrainer","Petra","Panke");
+            con = DriverManager.getConnection("jdbc:mysql://127.0.0.1:3306/vcetrainer","root","ncc1701d");
             // STATEMENT
             String Sql = "DELETE FROM lernkarte2themenbereich WHERE lernkarte_id=?";
             pst = con.prepareStatement(Sql);
@@ -161,7 +161,7 @@ public class Lernkarte2Themenbereich {
  public static ArrayList<Lernkarte2Themenbereich> getAllByLernKarte_id(int lKid) {
         ArrayList<Lernkarte2Themenbereich> lK2TBs = new ArrayList<>();
         try {
-            con = DriverManager.getConnection("jdbc:mysql://192.168.2.3:3306/vcetrainer","Petra","Panke");
+            con = DriverManager.getConnection("jdbc:mysql://127.0.0.1:3306/vcetrainer","root","ncc1701d");
             String Sql = "SELECT * FROM lernkarte2themenbereich WHERE lernkarte_id=?";
             pst = con.prepareStatement(Sql);
             pst.setInt(1, lKid);
